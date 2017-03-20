@@ -4,6 +4,9 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using CodeLibrary.Logger;
+
+//using Logging;
 
 namespace NoobService
 {
@@ -14,6 +17,7 @@ namespace NoobService
         /// </summary>
         static void Main()
         {
+            Logger.ConfigLogger();
 #if DEBUG
             Service1 myService=new Service1();
             myService.OnDebug();

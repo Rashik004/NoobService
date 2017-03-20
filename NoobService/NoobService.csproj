@@ -64,7 +64,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
@@ -73,6 +72,12 @@
     <EmbeddedResource Include="Service1.resx">
       <DependentUpon>Service1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeLibrary.Logger\CodeLibrary.Logger.csproj">
+      <Project>{7582ca41-7dbf-48be-9174-1ff90775bb89}</Project>
+      <Name>CodeLibrary.Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
