@@ -16,14 +16,14 @@ namespace NoobService
         public Service1()
         {
             InitializeComponent();
-            eventLog1 = new EventLog();
-            if (!EventLog.SourceExists("MySource"))
-            {
-                EventLog.CreateEventSource(
-                    "MySource", "MyNewLog");
-            }
-            eventLog1.Source = "MySource";
-            eventLog1.Log = "MyNewLog";
+            //eventLog1 = new EventLog();
+            //if (!EventLog.SourceExists("MySource"))
+            //{
+            //    EventLog.CreateEventSource(
+            //        "MySource", "MyNewLog");
+            //}
+            //eventLog1.Source = "MySource";
+            //eventLog1.Log = "MyNewLog";
         }
 
         public void OnDebug()
@@ -32,7 +32,7 @@ namespace NoobService
         }
         protected override void OnStart(string[] args)
         {
-            eventLog1.WriteEntry("In OnStart");
+            //eventLog1.WriteEntry("In OnStart");
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = 10000; // 60 seconds  
             timer.Elapsed += new System.Timers.ElapsedEventHandler(this.OnTimer);
