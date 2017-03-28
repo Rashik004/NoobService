@@ -17,7 +17,6 @@ namespace NoobService
         /// </summary>
         static void Main()
         {
-            Logger.ConfigLogger();
 #if DEBUG
             Service1 myService=new Service1();
             myService.OnDebug();

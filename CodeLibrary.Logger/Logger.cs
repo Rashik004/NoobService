@@ -19,9 +19,9 @@ namespace CodeLibrary.Logger
 
         }
 
-        public static void ConfigLogger()
+        public static void ConfigLogger(string configFilePath)
         {
-            log4net.Config.XmlConfigurator.Configure(configFile: new FileInfo("E:\\Coding Practice\\WS\\NoobService\\NoobService\\bin\\Release\\log4net.config"));
+            log4net.Config.XmlConfigurator.Configure(configFile: new FileInfo(configFilePath));
         }
 
         public void Debug(string message,Exception ex = null)
