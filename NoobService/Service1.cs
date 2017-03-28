@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -18,6 +19,7 @@ namespace NoobService
 
         public Service1()
         {
+            _logger = new Logger();
             InitializeComponent();
             _logger = new Logger();
         }
@@ -30,25 +32,24 @@ namespace NoobService
 
         protected override void OnStart(string[] args)
         {
+            Logger.ConfigLogger(AppDomain.CurrentDomain.BaseDirectory + "log4net.config");
             System.Timers.Timer timer = new System.Timers.Timer();
-            _logger.Debug("Hello world of Logging!!!!");
-            timer.Interval = 30000; // 60 seconds  
+            _logger.Debug("Service Has been started");
+            timer.Interval = 30000; // 30 seconds  
+
             timer.Elapsed += new System.Timers.ElapsedEventHandler(this.OnTimer);
             timer.Start();
-            System.IO.File.Create(AppDomain.CurrentDomain.BaseDirectory + "Onstart.txt");
         }
 
         private void OnTimer(object sender, ElapsedEventArgs e)
         {
             _logger.Debug("service timer logging");
+       
         }
 
         protected override void OnStop()
         {
-            _logger.Fatal("service has been stopped!!!!!!");
-            System.IO.File.Create(AppDomain.CurrentDomain.BaseDirectory + "Onstop.txt");
             _logger.Fatal("service has been stopped again!!!!!!");
-
         }
     }
 }
